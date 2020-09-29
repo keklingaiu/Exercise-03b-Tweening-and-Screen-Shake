@@ -43,7 +43,11 @@ func change_size(w, h):
 
 func start_paddle():
 	if HUD.paddle_appear:
-		pass
+		var target_pos = position
+		var appear_duration = 2.0
+		position.y = -100
+		$Tween.interpolate_property(self, "position", position, target_pos, appear_duration, Tween.TRANS_ELASTIC, Tween.EASE_IN_OUT)
+		$Tween.start()
 	else:
 		pass
 
